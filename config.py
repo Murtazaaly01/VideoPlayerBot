@@ -16,11 +16,14 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 """
 
+
 import os
 import re
 from dotenv import load_dotenv
 
 load_dotenv()
+
+
 
 class Config:
     ADMIN = os.environ.get("AUTH_USERS", "")
@@ -31,8 +34,7 @@ class Config:
     API_HASH = os.environ.get("API_HASH", "")
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "")
-    REPLY_MESSAGE = os.environ.get("REPLY_MESSAGE", "")
-    if REPLY_MESSAGE:
+    if REPLY_MESSAGE := os.environ.get("REPLY_MESSAGE", ""):
         REPLY_MESSAGE = REPLY_MESSAGE
     else:
         REPLY_MESSAGE = None

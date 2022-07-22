@@ -57,7 +57,7 @@ async def stream(client, m: Message):
         return
 
     media = m.reply_to_message
-    if not media and not ' ' in m.text:
+    if not media and ' ' not in m.text:
         await m.reply("❗ __Send Me An Live Stream Link / YouTube Video Link / Reply To An Video To Start Streaming!__")
 
     elif ' ' in m.text:
@@ -65,8 +65,7 @@ async def stream(client, m: Message):
         text = m.text.split(' ', 1)
         url = text[1]
         regex = r"^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+"
-        match = re.match(regex,url)
-        if match:
+        if match := re.match(regex, url):
             await msg.edit("🔄 `Starting YouTube Stream ...`")
             try:
                 info = ydl.extract_info(url, False)

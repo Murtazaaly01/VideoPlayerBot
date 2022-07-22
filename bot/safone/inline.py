@@ -37,15 +37,18 @@ buttons = [
 
 @Client.on_inline_query()
 async def search(client, query):
-    answers = []
     if query.query == "SAF_ONE":
-        answers.append(
+        answers = [
             InlineQueryResultArticle(
                 title="Deploy Own Video Player Bot",
-                input_message_content=InputTextMessageContent(f"{REPLY_MESSAGE}\n\n<b>© Powered By : \n@AsmSafone | @SafoTheBot 👑</b>", disable_web_page_preview=True),
-                reply_markup=InlineKeyboardMarkup(buttons)
-                )
+                input_message_content=InputTextMessageContent(
+                    f"{REPLY_MESSAGE}\n\n<b>© Powered By : \n@AsmSafone | @SafoTheBot 👑</b>",
+                    disable_web_page_preview=True,
+                ),
+                reply_markup=InlineKeyboardMarkup(buttons),
             )
+        ]
+
         await query.answer(results=answers, cache_time=0)
         return
 

@@ -48,7 +48,5 @@ async def nopm(client, message):
                     await client.send_message(chat_id=admin, text=f"Hey 🙋‍♂️,\nInline Mode Isn't Enabled For @{USERNAME} Yet. A Nibba Is Spaming Me In PM, Enable Inline Mode For @{USERNAME} From @Botfather To Reply Him 😉!")
                 except Exception as e:
                     print(e)
-                    pass
         except Exception as e:
             print(e)
-            pass
